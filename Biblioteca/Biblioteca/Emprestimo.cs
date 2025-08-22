@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 
 namespace Biblioteca
 {
@@ -16,6 +17,8 @@ namespace Biblioteca
         public int LivroId { get; set; }
         public Livro Livro { get; set; }
         public int AlunoId { get; set; }
+        public DateTime DataRetirada { get; set; }
+        public DateTime DataDevolucao { get; set; }
         public int SituacaoLivro { get; set; } // 0 - Livre,  1 - Emprestimo
     }
 }
