@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca
 {
-    partial class FrmPrincipal
+    partial class AlunoAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,16 @@
         {
             SuspendLayout();
             // 
-            // FrmPrincipal
+            // AlunoAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Tabelas_Admin;
             ClientSize = new Size(577, 738);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
-            Name = "FrmPrincipal";
+            Name = "AlunoAdmin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmPrincipal";
+            Text = "AlunoAdmin";
             ResumeLayout(false);
         }
 

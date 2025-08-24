@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca
 {
-    partial class FrmPrincipal
+    partial class ReservaAluno
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,16 @@
         {
             SuspendLayout();
             // 
-            // FrmPrincipal
+            // ReservaAluno
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Tela_Bipe_Livro;
             ClientSize = new Size(577, 738);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
-            Name = "FrmPrincipal";
+            Name = "ReservaAluno";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmPrincipal";
+            Text = "ReservaAluno";
             ResumeLayout(false);
         }
 

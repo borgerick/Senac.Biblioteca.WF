@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca
 {
-    partial class FrmPrincipal
+    partial class LoginAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginAdmin));
             SuspendLayout();
             // 
-            // FrmPrincipal
+            // LoginAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(577, 738);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
-            Name = "FrmPrincipal";
+            Name = "LoginAdmin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmPrincipal";
+            Text = "LoginAdmin";
             ResumeLayout(false);
         }
 
