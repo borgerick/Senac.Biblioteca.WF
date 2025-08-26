@@ -32,11 +32,12 @@
             // 
             // AlunoAdmin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Tabelas_Admin;
-            ClientSize = new Size(577, 738);
+            ClientSize = new Size(580, 738);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 4, 4, 4);
             Name = "AlunoAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AlunoAdmin";

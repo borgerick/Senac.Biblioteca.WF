@@ -28,21 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnLocalizar = new Button();
+            txtBipeLivro = new TextBox();
+            label3 = new Label();
             SuspendLayout();
+            // 
+            // btnLocalizar
+            // 
+            btnLocalizar.BackColor = Color.Transparent;
+            btnLocalizar.FlatAppearance.BorderSize = 0;
+            btnLocalizar.FlatStyle = FlatStyle.Flat;
+            btnLocalizar.Font = new Font("Arial", 16F);
+            btnLocalizar.ForeColor = Color.White;
+            btnLocalizar.Location = new Point(213, 421);
+            btnLocalizar.Name = "btnLocalizar";
+            btnLocalizar.Size = new Size(159, 49);
+            btnLocalizar.TabIndex = 7;
+            btnLocalizar.Text = "Localizar";
+            btnLocalizar.UseVisualStyleBackColor = false;
+            // 
+            // txtBipeLivro
+            // 
+            txtBipeLivro.BackColor = Color.DarkGray;
+            txtBipeLivro.BorderStyle = BorderStyle.None;
+            txtBipeLivro.Font = new Font("Arial", 12F);
+            txtBipeLivro.ForeColor = Color.White;
+            txtBipeLivro.Location = new Point(149, 332);
+            txtBipeLivro.Name = "txtBipeLivro";
+            txtBipeLivro.Size = new Size(287, 28);
+            txtBipeLivro.TabIndex = 8;
+            txtBipeLivro.Text = "Bipe seu livro aqui";
+            txtBipeLivro.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Arial", 22F);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(123, 228);
+            label3.Name = "label3";
+            label3.Size = new Size(329, 50);
+            label3.TabIndex = 10;
+            label3.Text = "Código do Livro";
             // 
             // ReservaAluno
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Tela_Bipe_Livro;
-            ClientSize = new Size(577, 738);
+            ClientSize = new Size(580, 738);
+            Controls.Add(label3);
+            Controls.Add(txtBipeLivro);
+            Controls.Add(btnLocalizar);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "ReservaAluno";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ReservaAluno";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button btnLocalizar;
+        private TextBox txtBipeLivro;
+        private Label label3;
     }
 }

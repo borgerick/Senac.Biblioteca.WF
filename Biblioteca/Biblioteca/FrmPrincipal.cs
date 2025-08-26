@@ -12,9 +12,24 @@ namespace Biblioteca
 {
     public partial class FrmPrincipal : Form
     {
-        public FrmPrincipal()
+        public FrmPrincipal(string nomeUsuario)
         {
             InitializeComponent();
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            var fmrmLoginAdmin = new LoginAdmin();
+        }
+
+        private void btnDevolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAlun_Click(object sender, EventArgs e)
+        {
+            var frmAluno = new LoginAluno();
         }
     }
 }
