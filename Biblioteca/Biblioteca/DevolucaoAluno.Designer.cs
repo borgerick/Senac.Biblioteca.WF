@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca
 {
-    partial class ReservaAluno
+    partial class DevolucaoAluno
     {
         /// <summary>
         /// Required designer variable.
@@ -28,25 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservaAluno));
-            btnLocalizar = new Button();
-            txtBipeLivro = new TextBox();
             label3 = new Label();
+            txtBipeLivro = new TextBox();
+            btnLocalizar = new Button();
             SuspendLayout();
             // 
-            // btnLocalizar
+            // label3
             // 
-            btnLocalizar.BackColor = Color.Transparent;
-            btnLocalizar.FlatAppearance.BorderSize = 0;
-            btnLocalizar.FlatStyle = FlatStyle.Flat;
-            btnLocalizar.Font = new Font("Arial", 16F);
-            btnLocalizar.ForeColor = Color.White;
-            btnLocalizar.Location = new Point(211, 443);
-            btnLocalizar.Name = "btnLocalizar";
-            btnLocalizar.Size = new Size(159, 49);
-            btnLocalizar.TabIndex = 7;
-            btnLocalizar.Text = "Localizar";
-            btnLocalizar.UseVisualStyleBackColor = false;
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Arial", 22F);
+            label3.ForeColor = Color.DimGray;
+            label3.Location = new Point(129, 235);
+            label3.Name = "label3";
+            label3.Size = new Size(329, 50);
+            label3.TabIndex = 11;
+            label3.Text = "Código do Livro";
             // 
             // txtBipeLivro
             // 
@@ -57,45 +54,45 @@
             txtBipeLivro.Location = new Point(149, 332);
             txtBipeLivro.Name = "txtBipeLivro";
             txtBipeLivro.Size = new Size(287, 28);
-            txtBipeLivro.TabIndex = 8;
+            txtBipeLivro.TabIndex = 12;
             txtBipeLivro.Text = "Bipe seu livro aqui";
             txtBipeLivro.TextAlign = HorizontalAlignment.Center;
             // 
-            // label3
+            // btnLocalizar
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Arial", 22F);
-            label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(123, 228);
-            label3.Name = "label3";
-            label3.Size = new Size(329, 50);
-            label3.TabIndex = 10;
-            label3.Text = "Código do Livro";
+            btnLocalizar.BackColor = Color.Transparent;
+            btnLocalizar.FlatAppearance.BorderSize = 0;
+            btnLocalizar.FlatStyle = FlatStyle.Flat;
+            btnLocalizar.Font = new Font("Arial", 16F);
+            btnLocalizar.ForeColor = Color.White;
+            btnLocalizar.Location = new Point(216, 443);
+            btnLocalizar.Name = "btnLocalizar";
+            btnLocalizar.Size = new Size(159, 49);
+            btnLocalizar.TabIndex = 13;
+            btnLocalizar.Text = "Localizar";
+            btnLocalizar.UseVisualStyleBackColor = false;
             // 
-            // ReservaAluno
+            // DevolucaoAluno
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources._5;
             ClientSize = new Size(580, 738);
-            Controls.Add(label3);
-            Controls.Add(txtBipeLivro);
             Controls.Add(btnLocalizar);
+            Controls.Add(txtBipeLivro);
+            Controls.Add(label3);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
-            Name = "ReservaAluno";
+            Name = "DevolucaoAluno";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ReservaAluno";
-            Load += ReservaAluno_Load;
+            Text = "DevolucaoAluno";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnLocalizar;
-        private TextBox txtBipeLivro;
         private Label label3;
+        private TextBox txtBipeLivro;
+        private Button btnLocalizar;
     }
 }

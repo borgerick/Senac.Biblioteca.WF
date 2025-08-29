@@ -63,6 +63,7 @@
             btnEntrar.TabIndex = 6;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = false;
+            btnEntrar.Click += btnEntrar_Click;
             // 
             // label1
             // 
@@ -106,7 +107,7 @@
             btnVoltar.BackColor = SystemColors.ButtonHighlight;
             btnVoltar.FlatAppearance.BorderSize = 0;
             btnVoltar.FlatStyle = FlatStyle.Flat;
-            btnVoltar.Location = new Point(456, 659);
+            btnVoltar.Location = new Point(467, 662);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(112, 34);
             btnVoltar.TabIndex = 10;

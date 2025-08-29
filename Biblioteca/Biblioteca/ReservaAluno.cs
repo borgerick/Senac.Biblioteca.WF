@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Biblioteca
+﻿namespace Biblioteca
 {
     public partial class ReservaAluno : Form
     {
-        public ReservaAluno()
+        public ReservaAluno(string cpfDigitado)
         {
             InitializeComponent();
+        }
+
+        private void ReservaAluno_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Close();
+            var frmPrincipal = new FrmPrincipal();
+            frmPrincipal.Show();
         }
     }
 }

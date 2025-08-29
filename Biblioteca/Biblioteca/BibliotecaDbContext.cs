@@ -27,3 +27,6 @@ namespace Biblioteca
         }
     }
 }
+
+
+// PARA CRIAR O BANCO > ADD-MIGRATION > UPDATE-DATABASE

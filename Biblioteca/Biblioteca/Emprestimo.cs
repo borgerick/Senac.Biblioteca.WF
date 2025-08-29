@@ -15,8 +15,9 @@ namespace Biblioteca
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int LivroId { get; set; }
-        public Livro Livro { get; set; }
+        public virtual Livro Livro { get; set; }
         public int AlunoId { get; set; }
+        public virtual Aluno Aluno { get; set; }
         public DateTime DataRetirada { get; set; }
         public DateTime DataDevolucao { get; set; }
         public int SituacaoLivro { get; set; } // 0 - Livre,  1 - Emprestimo

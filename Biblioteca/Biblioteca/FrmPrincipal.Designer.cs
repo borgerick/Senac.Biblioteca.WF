@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             btnAdmin = new Button();
             btnDevolver = new Button();
-            btnAlun = new Button();
+            btnAluno = new Button();
             SuspendLayout();
             // 
             // btnAdmin
@@ -41,7 +41,7 @@
             btnAdmin.FlatStyle = FlatStyle.Flat;
             btnAdmin.Font = new Font("Arial", 22F);
             btnAdmin.ForeColor = Color.White;
-            btnAdmin.Location = new Point(2, 203);
+            btnAdmin.Location = new Point(2, 202);
             btnAdmin.Name = "btnAdmin";
             btnAdmin.Size = new Size(211, 133);
             btnAdmin.TabIndex = 3;
@@ -66,21 +66,21 @@
             btnDevolver.UseVisualStyleBackColor = false;
             btnDevolver.Click += btnDevolver_Click;
             // 
-            // btnAlun
+            // btnAluno
             // 
-            btnAlun.BackColor = Color.Transparent;
-            btnAlun.FlatAppearance.BorderSize = 0;
-            btnAlun.FlatStyle = FlatStyle.Flat;
-            btnAlun.Font = new Font("Arial", 22F);
-            btnAlun.ForeColor = Color.White;
-            btnAlun.Location = new Point(2, 547);
-            btnAlun.Name = "btnAlun";
-            btnAlun.Size = new Size(511, 133);
-            btnAlun.TabIndex = 5;
-            btnAlun.Text = "Aluno";
-            btnAlun.TextAlign = ContentAlignment.MiddleLeft;
-            btnAlun.UseVisualStyleBackColor = false;
-            btnAlun.Click += btnAlun_Click;
+            btnAluno.BackColor = Color.Transparent;
+            btnAluno.FlatAppearance.BorderSize = 0;
+            btnAluno.FlatStyle = FlatStyle.Flat;
+            btnAluno.Font = new Font("Arial", 22F);
+            btnAluno.ForeColor = Color.White;
+            btnAluno.Location = new Point(2, 547);
+            btnAluno.Name = "btnAluno";
+            btnAluno.Size = new Size(511, 133);
+            btnAluno.TabIndex = 5;
+            btnAluno.Text = "Emprestimo";
+            btnAluno.TextAlign = ContentAlignment.MiddleLeft;
+            btnAluno.UseVisualStyleBackColor = false;
+            btnAluno.Click += btnAlun_Click;
             // 
             // FrmPrincipal
             // 
@@ -88,7 +88,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(580, 738);
-            Controls.Add(btnAlun);
+            Controls.Add(btnAluno);
             Controls.Add(btnDevolver);
             Controls.Add(btnAdmin);
             FormBorderStyle = FormBorderStyle.None;
@@ -103,6 +103,6 @@
 
         private Button btnAdmin;
         private Button btnDevolver;
-        private Button btnAlun;
+        private Button btnAluno;
     }
 }

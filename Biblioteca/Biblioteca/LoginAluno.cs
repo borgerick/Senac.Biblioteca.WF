@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Biblioteca
+﻿namespace Biblioteca
 {
     public partial class LoginAluno : Form
     {
@@ -16,7 +6,37 @@ namespace Biblioteca
         {
             InitializeComponent();
         }
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+            string cpfDigitado = txtCPF.Text.Trim();
+                       
+            if (string.IsNullOrWhiteSpace(cpfDigitado))
+            {
+                MessageBox.Show("Por favor, digite seu CPF.", "Atenção",
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Warning);
+                return;
+            }
+                        
+            if (cpfDigitado.Length > 11)
+            {
+                MessageBox.Show("CPF inválido. Digite novamente.", "Erro",
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Error);
+                return;
+            }
 
+            MessageBox.Show("Login realizado com sucesso!", "Bem-vindo",
+                            MessageBoxButtons.OK, 
+                            MessageBoxIcon.Information);
+
+            using (var frmReserva = new ReservaAluno(cpfDigitado))
+            {
+                frmReserva.ShowDialog();
+            }
+
+            this.Close();
+        }
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             Close();

@@ -15,7 +15,7 @@
             if (loginValido)
             {
                 this.Hide();
-                var frmPrincipal = new FrmPrincipal(_nomeUsuario, txtSenha.Text);
+                var frmPrincipal = new FrmPrincipal(_nomeUsuario);
                 frmPrincipal.Show();
             }
         }
