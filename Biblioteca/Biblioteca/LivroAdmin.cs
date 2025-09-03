@@ -8,27 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca
 {
     public partial class LivroAdmin : Form
     {
         Livro? livroSelecionado;
-        public LivroAdmin()
-        {
-            InitializeComponent();
-        }
-
         public LivroAdmin(string usuario)
         {
             InitializeComponent();
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            Close();
-            var frmPrincipal = new FrmPrincipal("");
-            frmPrincipal.Show();
         }
         private void LivroAdmin_Load(object sender, EventArgs e)
         {
@@ -36,14 +25,14 @@ namespace Biblioteca
         }
         private void BuscarLivros()
         {
-            using (var context = new BibliotecaDbContext())
+            using (var bd = new BibliotecaDbContext())
             {
-                var livros = context.Livros.AsQueryable();
+                var livros = bd.Livros.AsQueryable();
                 if (!string.IsNullOrEmpty(txtBuscar.Text))
                 {
-                    livros = livros.Where(l => l.Titulo.Contains(txtBuscar.Text) ||
-                                               l.Autor.Contains(txtBuscar.Text) ||
-                                               l.Categoria.Contains(txtBuscar.Text));
+                    livros = livros.Where(e => e.Titulo.Contains(txtBuscar.Text) ||
+                                               e.Autor.Contains(txtBuscar.Text) ||
+                                               e.Categoria.Contains(txtBuscar.Text));
                 }
                 dataGridViewLivro.DataSource = livros.ToList();
             }
@@ -69,8 +58,8 @@ namespace Biblioteca
         {
             if (livroSelecionado != null)
             {
-                var livroForm = new LivroAdminCad(livroSelecionado);
-                livroForm.ShowDialog();
+                var frmlivro = new LivroAdminCad(livroSelecionado);
+                frmlivro.ShowDialog();
                 BuscarLivros();
                 livroSelecionado = null;
             }
@@ -94,16 +83,23 @@ namespace Biblioteca
 
         private void btnAluno_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Hide();
             var frmAluno = new AlunoAdmin("");
-            frmAluno.Show();
+            frmAluno.ShowDialog();
         }
 
         private void btnReserva_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            var frmReserva = new EmprestimoAdmin("");
+            frmReserva.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             Close();
-            var frmReserva = new EmprestimoAdmin();
-            frmReserva.Show();
+            var frmPrincipal = new FrmPrincipal("");
+            frmPrincipal.Show();
         }
     }
 }

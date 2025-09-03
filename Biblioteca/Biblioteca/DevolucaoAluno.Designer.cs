@@ -31,6 +31,7 @@
             label3 = new Label();
             txtBipeLivro = new TextBox();
             btnLocalizar = new Button();
+            btnVoltar = new Button();
             SuspendLayout();
             // 
             // label3
@@ -72,12 +73,26 @@
             btnLocalizar.Text = "Localizar";
             btnLocalizar.UseVisualStyleBackColor = false;
             // 
+            // btnVoltar
+            // 
+            btnVoltar.BackColor = SystemColors.ButtonHighlight;
+            btnVoltar.FlatAppearance.BorderSize = 0;
+            btnVoltar.FlatStyle = FlatStyle.Flat;
+            btnVoltar.Location = new Point(498, 660);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(70, 34);
+            btnVoltar.TabIndex = 14;
+            btnVoltar.Text = "Voltar";
+            btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
+            // 
             // DevolucaoAluno
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources._5;
             ClientSize = new Size(580, 738);
+            Controls.Add(btnVoltar);
             Controls.Add(btnLocalizar);
             Controls.Add(txtBipeLivro);
             Controls.Add(label3);
@@ -94,5 +109,6 @@
         private Label label3;
         private TextBox txtBipeLivro;
         private Button btnLocalizar;
+        private Button btnVoltar;
     }
 }

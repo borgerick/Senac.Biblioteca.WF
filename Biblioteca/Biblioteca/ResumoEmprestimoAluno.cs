@@ -12,7 +12,7 @@ namespace Biblioteca
 {
     public partial class ResumoEmprestimoAluno : Form
     {
-        public ResumoEmprestimoAluno()
+        public ResumoEmprestimoAluno(int id)
         {
             InitializeComponent();
         }

@@ -14,16 +14,9 @@ namespace Biblioteca
     public partial class EmprestimoAdmin : Form
     {
         Emprestimo? emprestimoSelecionado;
-        public EmprestimoAdmin()
+        public EmprestimoAdmin(string v)
         {
             InitializeComponent();
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            Close();
-            var frmPrincipal = new FrmPrincipal("");
-            frmPrincipal.Show();
         }
         private void EmprestimoAdmin_Load(object sender, EventArgs e)
         {
@@ -33,7 +26,10 @@ namespace Biblioteca
         {
             using (var context = new BibliotecaDbContext())
             {
-                var emprestimos = context.Emprestimos.AsQueryable().Include(e=> e.Aluno).Include(e=> e.Livro).AsQueryable();
+                var emprestimos = context.Emprestimos.AsQueryable()
+                                                     .Include(e => e.Aluno)
+                                                     .Include(e => e.Livro)
+                                                     .AsQueryable();
                 if (!string.IsNullOrEmpty(txtBuscar.Text))
                 {
                     emprestimos = emprestimos.Where(e => e.Aluno.Nome.Contains(txtBuscar.Text) ||
@@ -63,8 +59,8 @@ namespace Biblioteca
         {
             if (emprestimoSelecionado != null)
             {
-                var formEmprestimo = new EmprestimoAdminCad(emprestimoSelecionado);
-                formEmprestimo.ShowDialog();
+                var frmEmprestimo = new EmprestimoAdminCad(emprestimoSelecionado);
+                frmEmprestimo.ShowDialog();
                 BuscarEmprestimos();
                 emprestimoSelecionado = null;
             }
@@ -88,16 +84,28 @@ namespace Biblioteca
 
         private void btnLivro_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Hide();
             var frmLivro = new LivroAdmin("");
-            frmLivro.Show();
+            frmLivro.ShowDialog();
         }
 
         private void btnAluno_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Hide();
             var frmAluno = new AlunoAdmin("");
-            frmAluno.Show();
+            frmAluno.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+            var frmPrincipal = new FrmPrincipal("");
+            frmPrincipal.ShowDialog();
+        }
+
+        private void btnReserva_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

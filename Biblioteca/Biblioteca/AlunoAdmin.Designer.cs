@@ -48,7 +48,7 @@
             btnReserva.FlatStyle = FlatStyle.Flat;
             btnReserva.Font = new Font("Arial", 14F);
             btnReserva.ForeColor = Color.White;
-            btnReserva.Location = new Point(388, 25);
+            btnReserva.Location = new Point(390, 25);
             btnReserva.Name = "btnReserva";
             btnReserva.Size = new Size(191, 49);
             btnReserva.TabIndex = 3;
@@ -63,7 +63,7 @@
             btnAluno.FlatStyle = FlatStyle.Flat;
             btnAluno.Font = new Font("Arial", 14F);
             btnAluno.ForeColor = Color.White;
-            btnAluno.Location = new Point(193, 25);
+            btnAluno.Location = new Point(197, 25);
             btnAluno.Name = "btnAluno";
             btnAluno.Size = new Size(191, 49);
             btnAluno.TabIndex = 4;
@@ -92,7 +92,7 @@
             btnAdicionar.FlatStyle = FlatStyle.Flat;
             btnAdicionar.Font = new Font("Arial", 12F);
             btnAdicionar.ForeColor = Color.White;
-            btnAdicionar.Location = new Point(100, 642);
+            btnAdicionar.Location = new Point(103, 641);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(378, 36);
             btnAdicionar.TabIndex = 6;
@@ -108,7 +108,7 @@
             btnExcluir.Font = new Font("Arial", 12F);
             btnExcluir.ForeColor = Color.White;
             btnExcluir.ImageAlign = ContentAlignment.TopCenter;
-            btnExcluir.Location = new Point(102, 684);
+            btnExcluir.Location = new Point(103, 683);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(187, 36);
             btnExcluir.TabIndex = 7;
@@ -124,7 +124,7 @@
             btnEditar.Font = new Font("Arial", 12F);
             btnEditar.ForeColor = Color.White;
             btnEditar.ImageAlign = ContentAlignment.TopCenter;
-            btnEditar.Location = new Point(291, 684);
+            btnEditar.Location = new Point(293, 682);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(187, 36);
             btnEditar.TabIndex = 8;
@@ -134,11 +134,13 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 93);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(556, 477);
             dataGridView1.TabIndex = 9;
@@ -150,23 +152,26 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(556, 31);
             txtBuscar.TabIndex = 10;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // btnVoltar
             // 
             btnVoltar.BackColor = Color.Transparent;
             btnVoltar.BackgroundImage = (Image)resources.GetObject("btnVoltar.BackgroundImage");
             btnVoltar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnVoltar.Location = new Point(520, 684);
+            btnVoltar.FlatAppearance.BorderSize = 0;
+            btnVoltar.FlatStyle = FlatStyle.Flat;
+            btnVoltar.Location = new Point(516, 680);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(48, 34);
+            btnVoltar.Size = new Size(51, 49);
             btnVoltar.TabIndex = 11;
             btnVoltar.UseVisualStyleBackColor = false;
-            btnVoltar.Click += btnVoltar_Click;
             // 
             // AlunoAdmin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(580, 738);
             Controls.Add(btnVoltar);
@@ -183,6 +188,7 @@
             Name = "AlunoAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AlunoAdmin";
+            Load += AlunoAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

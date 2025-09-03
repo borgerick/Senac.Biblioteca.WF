@@ -49,6 +49,8 @@
             txtCPF.TabIndex = 5;
             txtCPF.Text = "Digite seu CPF";
             txtCPF.TextAlign = HorizontalAlignment.Center;
+            txtCPF.Enter += txtCPF_Enter;
+            txtCPF.Leave += txtCPF_Leave;
             // 
             // btnEntrar
             // 
@@ -107,9 +109,9 @@
             btnVoltar.BackColor = SystemColors.ButtonHighlight;
             btnVoltar.FlatAppearance.BorderSize = 0;
             btnVoltar.FlatStyle = FlatStyle.Flat;
-            btnVoltar.Location = new Point(467, 662);
+            btnVoltar.Location = new Point(498, 660);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(112, 34);
+            btnVoltar.Size = new Size(70, 34);
             btnVoltar.TabIndex = 10;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;

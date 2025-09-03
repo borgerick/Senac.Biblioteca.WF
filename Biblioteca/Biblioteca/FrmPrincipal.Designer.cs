@@ -32,6 +32,7 @@
             btnAdmin = new Button();
             btnDevolver = new Button();
             btnAluno = new Button();
+            btnfechar = new Button();
             SuspendLayout();
             // 
             // btnAdmin
@@ -82,12 +83,27 @@
             btnAluno.UseVisualStyleBackColor = false;
             btnAluno.Click += btnAlun_Click;
             // 
+            // btnfechar
+            // 
+            btnfechar.BackColor = Color.White;
+            btnfechar.FlatAppearance.BorderSize = 0;
+            btnfechar.FlatStyle = FlatStyle.Flat;
+            btnfechar.ForeColor = Color.White;
+            btnfechar.Location = new Point(511, 754);
+            btnfechar.Name = "btnfechar";
+            btnfechar.Size = new Size(69, 27);
+            btnfechar.TabIndex = 6;
+            btnfechar.Text = "fechar";
+            btnfechar.UseVisualStyleBackColor = false;
+            btnfechar.Click += btnfechar_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(580, 738);
+            ClientSize = new Size(580, 774);
+            Controls.Add(btnfechar);
             Controls.Add(btnAluno);
             Controls.Add(btnDevolver);
             Controls.Add(btnAdmin);
@@ -104,5 +120,6 @@
         private Button btnAdmin;
         private Button btnDevolver;
         private Button btnAluno;
+        private Button btnfechar;
     }
 }

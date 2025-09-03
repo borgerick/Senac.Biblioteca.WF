@@ -36,8 +36,8 @@
             btnExcluir = new Button();
             btnEditar = new Button();
             dataGridViewLivro = new DataGridView();
-            btnVoltar = new Button();
             txtBuscar = new TextBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLivro).BeginInit();
             SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             btnLivro.FlatStyle = FlatStyle.Flat;
             btnLivro.Font = new Font("Arial", 14F);
             btnLivro.ForeColor = Color.White;
-            btnLivro.Location = new Point(2, 24);
+            btnLivro.Location = new Point(1, 25);
             btnLivro.Name = "btnLivro";
             btnLivro.Size = new Size(191, 49);
             btnLivro.TabIndex = 1;
@@ -134,27 +134,17 @@
             // 
             // dataGridViewLivro
             // 
+            dataGridViewLivro.AllowUserToAddRows = false;
             dataGridViewLivro.BackgroundColor = Color.White;
             dataGridViewLivro.BorderStyle = BorderStyle.None;
             dataGridViewLivro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewLivro.Location = new Point(12, 93);
             dataGridViewLivro.Name = "dataGridViewLivro";
+            dataGridViewLivro.ReadOnly = true;
             dataGridViewLivro.RowHeadersWidth = 62;
             dataGridViewLivro.Size = new Size(556, 477);
             dataGridViewLivro.TabIndex = 6;
             dataGridViewLivro.CellContentClick += dataGridViewLivro_CellClick;
-            // 
-            // btnVoltar
-            // 
-            btnVoltar.BackColor = Color.Transparent;
-            btnVoltar.BackgroundImage = (Image)resources.GetObject("btnVoltar.BackgroundImage");
-            btnVoltar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnVoltar.Location = new Point(520, 683);
-            btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(48, 34);
-            btnVoltar.TabIndex = 7;
-            btnVoltar.UseVisualStyleBackColor = false;
-            btnVoltar.Click += btnVoltar_Click;
             // 
             // txtBuscar
             // 
@@ -164,14 +154,28 @@
             txtBuscar.TabIndex = 8;
             txtBuscar.TextChanged += txtPesquisar_TextChanged;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(516, 680);
+            button1.Name = "button1";
+            button1.Size = new Size(51, 49);
+            button1.TabIndex = 12;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // LivroAdmin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(580, 738);
+            Controls.Add(button1);
             Controls.Add(txtBuscar);
-            Controls.Add(btnVoltar);
             Controls.Add(dataGridViewLivro);
             Controls.Add(btnEditar);
             Controls.Add(btnExcluir);
@@ -184,6 +188,7 @@
             Name = "LivroAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LivroAdmin";
+            Load += LivroAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewLivro).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -198,7 +203,7 @@
         private Button btnExcluir;
         private Button btnEditar;
         private DataGridView dataGridViewLivro;
-        private Button btnVoltar;
         private TextBox txtBuscar;
+        private Button button1;
     }
 }

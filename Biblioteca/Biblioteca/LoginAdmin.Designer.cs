@@ -59,6 +59,8 @@
             txtLogin.Size = new Size(287, 33);
             txtLogin.TabIndex = 4;
             txtLogin.Text = "Usuário";
+            txtLogin.Enter += txtLogin_Enter;
+            txtLogin.Leave += txtLogin_Leave;
             // 
             // txtSenha
             // 
@@ -71,6 +73,8 @@
             txtSenha.Size = new Size(287, 33);
             txtSenha.TabIndex = 5;
             txtSenha.Text = "Senha";
+            txtSenha.Enter += txtSenha_Enter;
+            txtSenha.Leave += txtSenha_Leave;
             // 
             // btnEntrar
             // 
@@ -85,18 +89,20 @@
             btnEntrar.TabIndex = 2;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = false;
+            btnEntrar.Click += btnEntrar_Click;
             // 
             // btnVoltar
             // 
             btnVoltar.BackColor = SystemColors.ButtonHighlight;
             btnVoltar.FlatAppearance.BorderSize = 0;
             btnVoltar.FlatStyle = FlatStyle.Flat;
-            btnVoltar.Location = new Point(456, 692);
+            btnVoltar.Location = new Point(498, 660);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(112, 34);
+            btnVoltar.Size = new Size(70, 34);
             btnVoltar.TabIndex = 6;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // LoginAdmin
             // 

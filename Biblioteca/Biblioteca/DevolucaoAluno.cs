@@ -16,5 +16,12 @@ namespace Biblioteca
         {
             InitializeComponent();
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Close();
+            var frmPrincipal = new FrmPrincipal();
+            frmPrincipal.Show();
+        }
     }
 }

@@ -32,6 +32,8 @@
             btnLocalizar = new Button();
             txtBipeLivro = new TextBox();
             label3 = new Label();
+            btnVoltar = new Button();
+            lblMensagem = new Label();
             SuspendLayout();
             // 
             // btnLocalizar
@@ -47,6 +49,7 @@
             btnLocalizar.TabIndex = 7;
             btnLocalizar.Text = "Localizar";
             btnLocalizar.UseVisualStyleBackColor = false;
+            btnLocalizar.Click += btnLocalizar_Click;
             // 
             // txtBipeLivro
             // 
@@ -60,6 +63,8 @@
             txtBipeLivro.TabIndex = 8;
             txtBipeLivro.Text = "Bipe seu livro aqui";
             txtBipeLivro.TextAlign = HorizontalAlignment.Center;
+            txtBipeLivro.Enter += txtBipeLivro_Enter;
+            txtBipeLivro.Leave += txtBipeLivro_Leave;
             // 
             // label3
             // 
@@ -73,12 +78,36 @@
             label3.TabIndex = 10;
             label3.Text = "Código do Livro";
             // 
+            // btnVoltar
+            // 
+            btnVoltar.BackColor = SystemColors.ButtonHighlight;
+            btnVoltar.FlatAppearance.BorderSize = 0;
+            btnVoltar.FlatStyle = FlatStyle.Flat;
+            btnVoltar.Location = new Point(498, 660);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(70, 34);
+            btnVoltar.TabIndex = 11;
+            btnVoltar.Text = "Voltar";
+            btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click_1;
+            // 
+            // lblMensagem
+            // 
+            lblMensagem.AutoSize = true;
+            lblMensagem.Location = new Point(193, 66);
+            lblMensagem.Name = "lblMensagem";
+            lblMensagem.Size = new Size(119, 25);
+            lblMensagem.TabIndex = 12;
+            lblMensagem.Text = "lblMensagem";
+            // 
             // ReservaAluno
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(580, 738);
+            Controls.Add(lblMensagem);
+            Controls.Add(btnVoltar);
             Controls.Add(label3);
             Controls.Add(txtBipeLivro);
             Controls.Add(btnLocalizar);
@@ -97,5 +126,7 @@
         private Button btnLocalizar;
         private TextBox txtBipeLivro;
         private Label label3;
+        private Button btnVoltar;
+        private Label lblMensagem;
     }
 }

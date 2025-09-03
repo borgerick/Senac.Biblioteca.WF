@@ -7,43 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca
 {
     public partial class AlunoAdmin : Form
     {
         Aluno? alunoSelecionado;
-        public AlunoAdmin()
+        public AlunoAdmin(string usuario)
         {
             InitializeComponent();
         }
-        public AlunoAdmin(string aluno)
-        {
-            InitializeComponent();
-        }
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            Close();
-            var frmPrincipal = new FrmPrincipal("");
-            frmPrincipal.Show();
-        }
+
         private void AlunoAdmin_Load(object sender, EventArgs e)
         {
             BuscarAlunos();
         }
         private void BuscarAlunos()
         {
-            using (var context = new BibliotecaDbContext())
+            using (var bd = new BibliotecaDbContext())
             {
-                var alunos = context.Alunos.AsQueryable();
+                var alunos = bd.Alunos.AsQueryable();
                 if (!string.IsNullOrEmpty(txtBuscar.Text))
                 {
-                    alunos = alunos.Where(a => a.Nome.Contains(txtBuscar.Text) ||
-                                               a.SobreNome.Contains(txtBuscar.Text));
+                    alunos = alunos.Where(e => e.Nome.Contains(txtBuscar.Text) ||
+                                               e.SobreNome.Contains(txtBuscar.Text) ||
+                                               e.CPF.Contains(txtBuscar.Text)).AsQueryable();
                 }
                 dataGridView1.DataSource = alunos.ToList();
             }
-        }
+        }      
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             new AlunoAdminCad().ShowDialog();
@@ -91,16 +84,16 @@ namespace Biblioteca
 
         private void btnLivro_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Hide();
             var frmLivro = new LivroAdmin("");
-            frmLivro.Show();
+            frmLivro.ShowDialog();
         }
 
         private void btnReserva_Click(object sender, EventArgs e)
         {
-            Close();
-            var frmEmprestimo = new EmprestimoAdmin();
-            frmEmprestimo.Show();
+            this.Hide();
+            var frmReserva = new EmprestimoAdmin("");
+            frmReserva.ShowDialog();
         }
     }
 }

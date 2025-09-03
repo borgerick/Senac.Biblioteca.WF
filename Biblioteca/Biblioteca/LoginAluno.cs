@@ -1,47 +1,69 @@
-﻿namespace Biblioteca
+﻿using System.Runtime.CompilerServices;
+
+namespace Biblioteca
 {
     public partial class LoginAluno : Form
     {
+        string _CPFValido;
         public LoginAluno()
         {
             InitializeComponent();
         }
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            string cpfDigitado = txtCPF.Text.Trim();
-                       
-            if (string.IsNullOrWhiteSpace(cpfDigitado))
+            bool loginValido = ValidadarLogin(txtCPF.Text);
+            if (loginValido)
             {
-                MessageBox.Show("Por favor, digite seu CPF.", "Atenção",
-                                MessageBoxButtons.OK, 
-                                MessageBoxIcon.Warning);
-                return;
+                var reservaAluno = new ReservaAluno(_CPFValido, txtCPF.Text);
+                this.Hide();
+                reservaAluno.ShowDialog();
+                this.Show();
             }
-                        
-            if (cpfDigitado.Length > 11)
+            else
             {
-                MessageBox.Show("CPF inválido. Digite novamente.", "Erro",
-                                MessageBoxButtons.OK, 
-                                MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("CPF inválido. Tente novamente.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
-            MessageBox.Show("Login realizado com sucesso!", "Bem-vindo",
-                            MessageBoxButtons.OK, 
-                            MessageBoxIcon.Information);
-
-            using (var frmReserva = new ReservaAluno(cpfDigitado))
+        private bool ValidadarLogin(string cpf)
+        {
+            using (var bd = new BibliotecaDbContext())
             {
-                frmReserva.ShowDialog();
+                var aluno = bd.Alunos.FirstOrDefault(u => u.CPF == cpf);
+                if (aluno is not null)
+                {
+                    _CPFValido = aluno.CPF;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            this.Close();
         }
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             Close();
             var frmPrincipal = new FrmPrincipal();
             frmPrincipal.Show();
+        }
+
+        private void txtCPF_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCPF.Text))
+            {
+                txtCPF.Text = "Digite seu CPF";
+                txtCPF.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtCPF_Enter(object sender, EventArgs e)
+        {
+            if (txtCPF.Text == "Digite seu CPF")
+            {
+                txtCPF.Text = string.Empty;
+                txtCPF.ForeColor = Color.Black;
+            }
         }
     }
 }
