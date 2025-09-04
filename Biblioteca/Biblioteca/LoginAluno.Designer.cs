@@ -35,6 +35,7 @@
             label2 = new Label();
             label3 = new Label();
             btnVoltar = new Button();
+            btnDevolver = new Button();
             SuspendLayout();
             // 
             // txtCPF
@@ -59,11 +60,11 @@
             btnEntrar.FlatStyle = FlatStyle.Flat;
             btnEntrar.Font = new Font("Arial", 16F);
             btnEntrar.ForeColor = Color.White;
-            btnEntrar.Location = new Point(213, 442);
+            btnEntrar.Location = new Point(119, 462);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(159, 49);
+            btnEntrar.Size = new Size(159, 44);
             btnEntrar.TabIndex = 6;
-            btnEntrar.Text = "Entrar";
+            btnEntrar.Text = "Reservar";
             btnEntrar.UseVisualStyleBackColor = false;
             btnEntrar.Click += btnEntrar_Click;
             // 
@@ -74,7 +75,7 @@
             label1.FlatStyle = FlatStyle.Flat;
             label1.Font = new Font("Segoe UI", 8F);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(125, 378);
+            label1.Location = new Point(125, 389);
             label1.Name = "label1";
             label1.Size = new Size(321, 21);
             label1.TabIndex = 7;
@@ -86,7 +87,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 8F);
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(152, 396);
+            label2.Location = new Point(152, 410);
             label2.Name = "label2";
             label2.Size = new Size(257, 21);
             label2.TabIndex = 8;
@@ -117,12 +118,28 @@
             btnVoltar.UseVisualStyleBackColor = false;
             btnVoltar.Click += btnVoltar_Click;
             // 
+            // btnDevolver
+            // 
+            btnDevolver.BackColor = Color.Transparent;
+            btnDevolver.FlatAppearance.BorderSize = 0;
+            btnDevolver.FlatStyle = FlatStyle.Flat;
+            btnDevolver.Font = new Font("Arial", 16F);
+            btnDevolver.ForeColor = Color.Gray;
+            btnDevolver.Location = new Point(305, 462);
+            btnDevolver.Name = "btnDevolver";
+            btnDevolver.Size = new Size(159, 44);
+            btnDevolver.TabIndex = 11;
+            btnDevolver.Text = "Devolver";
+            btnDevolver.UseVisualStyleBackColor = false;
+            btnDevolver.Click += btnDevolver_Click;
+            // 
             // LoginAluno
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(580, 738);
+            Controls.Add(btnDevolver);
             Controls.Add(btnVoltar);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -146,5 +163,6 @@
         private Label label2;
         private Label label3;
         private Button btnVoltar;
+        private Button btnDevolver;
     }
 }

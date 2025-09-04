@@ -19,12 +19,6 @@
             frmLoginAdmin.ShowDialog();
         }
 
-        private void btnDevolver_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var frmDevolver = new DevolucaoAluno();
-            frmDevolver.ShowDialog();
-        }
 
         private void btnAlun_Click(object sender, EventArgs e)
         {

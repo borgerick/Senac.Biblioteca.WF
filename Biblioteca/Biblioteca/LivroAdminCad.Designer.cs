@@ -28,49 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtLogin = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtTitulo = new TextBox();
+            txtAutor = new TextBox();
+            txtCategoria = new TextBox();
             btnAdicionar = new Button();
             button1 = new Button();
             label1 = new Label();
+            txtCodigo = new TextBox();
             SuspendLayout();
             // 
-            // txtLogin
+            // txtTitulo
             // 
-            txtLogin.BackColor = Color.Gainsboro;
-            txtLogin.BorderStyle = BorderStyle.None;
-            txtLogin.Font = new Font("Arial", 14F);
-            txtLogin.ForeColor = Color.Black;
-            txtLogin.Location = new Point(58, 105);
-            txtLogin.Name = "txtLogin";
-            txtLogin.Size = new Size(361, 33);
-            txtLogin.TabIndex = 5;
-            txtLogin.Text = "Titulo";
+            txtTitulo.BackColor = Color.Gainsboro;
+            txtTitulo.BorderStyle = BorderStyle.None;
+            txtTitulo.Font = new Font("Arial", 14F);
+            txtTitulo.ForeColor = Color.Black;
+            txtTitulo.Location = new Point(58, 138);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(361, 33);
+            txtTitulo.TabIndex = 5;
+            txtTitulo.Text = "Titulo";
+            txtTitulo.Enter += txtTitulo_Enter;
+            txtTitulo.Leave += txtTitulo_Leave;
             // 
-            // textBox1
+            // txtAutor
             // 
-            textBox1.BackColor = Color.Gainsboro;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Arial", 14F);
-            textBox1.ForeColor = Color.Black;
-            textBox1.Location = new Point(58, 168);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(361, 33);
-            textBox1.TabIndex = 6;
-            textBox1.Text = "Autor";
+            txtAutor.BackColor = Color.Gainsboro;
+            txtAutor.BorderStyle = BorderStyle.None;
+            txtAutor.Font = new Font("Arial", 14F);
+            txtAutor.ForeColor = Color.Black;
+            txtAutor.Location = new Point(58, 190);
+            txtAutor.Name = "txtAutor";
+            txtAutor.Size = new Size(361, 33);
+            txtAutor.TabIndex = 6;
+            txtAutor.Text = "Autor";
+            txtAutor.Enter += txtAutor_Enter;
+            txtAutor.Leave += txtAutor_Leave;
             // 
-            // textBox2
+            // txtCategoria
             // 
-            textBox2.BackColor = Color.Gainsboro;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Arial", 14F);
-            textBox2.ForeColor = Color.Black;
-            textBox2.Location = new Point(58, 233);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(361, 33);
-            textBox2.TabIndex = 7;
-            textBox2.Text = "Categoria";
+            txtCategoria.BackColor = Color.Gainsboro;
+            txtCategoria.BorderStyle = BorderStyle.None;
+            txtCategoria.Font = new Font("Arial", 14F);
+            txtCategoria.ForeColor = Color.Black;
+            txtCategoria.Location = new Point(58, 244);
+            txtCategoria.Name = "txtCategoria";
+            txtCategoria.Size = new Size(361, 33);
+            txtCategoria.TabIndex = 7;
+            txtCategoria.Text = "Categoria";
+            txtCategoria.Enter += txtCategoria_Enter;
+            txtCategoria.Leave += txtCategoria_Leave;
             // 
             // btnAdicionar
             // 
@@ -85,6 +92,7 @@
             btnAdicionar.TabIndex = 8;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = false;
+            btnAdicionar.Click += btnSalvar_Click;
             // 
             // button1
             // 
@@ -99,6 +107,7 @@
             button1.TabIndex = 9;
             button1.Text = "Cancelar";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
@@ -112,17 +121,32 @@
             label1.TabIndex = 10;
             label1.Text = "Insira as informações do livro";
             // 
+            // txtCodigo
+            // 
+            txtCodigo.BackColor = Color.Gainsboro;
+            txtCodigo.BorderStyle = BorderStyle.None;
+            txtCodigo.Font = new Font("Arial", 14F);
+            txtCodigo.ForeColor = Color.Black;
+            txtCodigo.Location = new Point(58, 90);
+            txtCodigo.Name = "txtCodigo";
+            txtCodigo.Size = new Size(361, 33);
+            txtCodigo.TabIndex = 11;
+            txtCodigo.Text = "Codigo";
+            txtCodigo.Enter += txtCodigo_Enter;
+            txtCodigo.Leave += txtCodigo_Leave;
+            // 
             // LivroAdminCad
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(470, 367);
+            Controls.Add(txtCodigo);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(btnAdicionar);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(txtLogin);
+            Controls.Add(txtCategoria);
+            Controls.Add(txtAutor);
+            Controls.Add(txtTitulo);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LivroAdminCad";
             StartPosition = FormStartPosition.CenterScreen;
@@ -133,11 +157,12 @@
 
         #endregion
 
-        private TextBox txtLogin;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtTitulo;
+        private TextBox txtAutor;
+        private TextBox txtCategoria;
         private Button btnAdicionar;
         private Button button1;
         private Label label1;
+        private TextBox txtCodigo;
     }
 }

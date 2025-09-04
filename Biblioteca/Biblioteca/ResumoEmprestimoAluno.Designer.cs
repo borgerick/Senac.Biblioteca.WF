@@ -28,25 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnInicio = new Button();
             label3 = new Label();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnVoltar = new Button();
+            lblNumeroReserva = new Label();
+            lblAluno = new Label();
+            lblRetirada = new Label();
+            lblDevolucao = new Label();
             SuspendLayout();
-            // 
-            // btnInicio
-            // 
-            btnInicio.BackColor = Color.DarkOrange;
-            btnInicio.FlatAppearance.BorderSize = 0;
-            btnInicio.FlatStyle = FlatStyle.Flat;
-            btnInicio.Font = new Font("Arial", 12F);
-            btnInicio.ForeColor = Color.White;
-            btnInicio.Location = new Point(491, 653);
-            btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(90, 42);
-            btnInicio.TabIndex = 8;
-            btnInicio.Text = "Início";
-            btnInicio.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -60,14 +48,66 @@
             label3.TabIndex = 10;
             label3.Text = "Resumo da Reserva";
             // 
-            // dataGridView1
+            // btnVoltar
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(24, 156);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(422, 342);
-            dataGridView1.TabIndex = 11;
+            btnVoltar.BackColor = SystemColors.ButtonHighlight;
+            btnVoltar.FlatAppearance.BorderSize = 0;
+            btnVoltar.FlatStyle = FlatStyle.Flat;
+            btnVoltar.Location = new Point(498, 660);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(70, 34);
+            btnVoltar.TabIndex = 12;
+            btnVoltar.Text = "Voltar";
+            btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
+            // 
+            // lblNumeroReserva
+            // 
+            lblNumeroReserva.AutoSize = true;
+            lblNumeroReserva.BackColor = Color.Transparent;
+            lblNumeroReserva.Font = new Font("Arial", 12F);
+            lblNumeroReserva.ForeColor = Color.White;
+            lblNumeroReserva.Location = new Point(24, 284);
+            lblNumeroReserva.Name = "lblNumeroReserva";
+            lblNumeroReserva.Size = new Size(210, 27);
+            lblNumeroReserva.TabIndex = 13;
+            lblNumeroReserva.Text = "lblNumeroReserva";
+            // 
+            // lblAluno
+            // 
+            lblAluno.AutoSize = true;
+            lblAluno.BackColor = Color.Transparent;
+            lblAluno.Font = new Font("Arial", 12F);
+            lblAluno.ForeColor = Color.White;
+            lblAluno.Location = new Point(24, 333);
+            lblAluno.Name = "lblAluno";
+            lblAluno.Size = new Size(100, 27);
+            lblAluno.TabIndex = 14;
+            lblAluno.Text = "lblAluno";
+            // 
+            // lblRetirada
+            // 
+            lblRetirada.AutoSize = true;
+            lblRetirada.BackColor = Color.Transparent;
+            lblRetirada.Font = new Font("Arial", 12F);
+            lblRetirada.ForeColor = Color.White;
+            lblRetirada.Location = new Point(24, 381);
+            lblRetirada.Name = "lblRetirada";
+            lblRetirada.Size = new Size(128, 27);
+            lblRetirada.TabIndex = 15;
+            lblRetirada.Text = "lblRetirada";
+            // 
+            // lblDevolucao
+            // 
+            lblDevolucao.AutoSize = true;
+            lblDevolucao.BackColor = Color.Transparent;
+            lblDevolucao.Font = new Font("Arial", 12F);
+            lblDevolucao.ForeColor = Color.White;
+            lblDevolucao.Location = new Point(24, 431);
+            lblDevolucao.Name = "lblDevolucao";
+            lblDevolucao.Size = new Size(150, 27);
+            lblDevolucao.TabIndex = 16;
+            lblDevolucao.Text = "lblDevolucao";
             // 
             // ResumoEmprestimoAluno
             // 
@@ -75,23 +115,27 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Resumo_Emprestimo;
             ClientSize = new Size(580, 738);
-            Controls.Add(dataGridView1);
+            Controls.Add(lblDevolucao);
+            Controls.Add(lblRetirada);
+            Controls.Add(lblAluno);
+            Controls.Add(lblNumeroReserva);
+            Controls.Add(btnVoltar);
             Controls.Add(label3);
-            Controls.Add(btnInicio);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             Name = "ResumoEmprestimoAluno";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ResumoEmprestimoAluno";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnInicio;
         private Label label3;
-        private DataGridView dataGridView1;
+        private Button btnVoltar;
+        private Label lblNumeroReserva;
+        private Label lblAluno;
+        private Label lblRetirada;
+        private Label lblDevolucao;
     }
 }

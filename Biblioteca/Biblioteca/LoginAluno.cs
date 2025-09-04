@@ -25,6 +25,22 @@ namespace Biblioteca
             }
         }
 
+        private void btnDevolver_Click(object sender, EventArgs e)
+        {
+            bool loginValido = ValidadarLogin(txtCPF.Text);
+            if (loginValido)
+            {
+                var devolucaoaluno = new DevolucaoAluno(_CPFValido, txtCPF.Text);
+                this.Hide();
+                devolucaoaluno.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("CPF inválido. Tente novamente.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private bool ValidadarLogin(string cpf)
         {
             using (var bd = new BibliotecaDbContext())
@@ -65,5 +81,7 @@ namespace Biblioteca
                 txtCPF.ForeColor = Color.Black;
             }
         }
+
+
     }
 }

@@ -56,13 +56,27 @@ namespace Biblioteca
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (livroSelecionado != null)
+            if (livroSelecionado == null)
             {
-                var frmlivro = new LivroAdminCad(livroSelecionado);
-                frmlivro.ShowDialog();
-                BuscarLivros();
-                livroSelecionado = null;
+                MessageBox.Show("Selecione um livro para editar.",
+                                "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            // Abre tela de edição
+            using (var frmlivro = new LivroAdminCad(livroSelecionado))
+            {
+                var resultado = frmlivro.ShowDialog();
+
+                // Se o admin clicou em "Salvar", atualiza a lista
+                if (resultado == DialogResult.OK)
+                {
+                    BuscarLivros();
+                }
+            }
+
+            // Limpa seleção
+            livroSelecionado = null;
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {

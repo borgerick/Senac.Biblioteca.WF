@@ -94,10 +94,13 @@
             // lblMensagem
             // 
             lblMensagem.AutoSize = true;
-            lblMensagem.Location = new Point(193, 66);
+            lblMensagem.BackColor = Color.Transparent;
+            lblMensagem.Font = new Font("Arial", 22F);
+            lblMensagem.ForeColor = Color.DimGray;
+            lblMensagem.Location = new Point(123, 45);
             lblMensagem.Name = "lblMensagem";
-            lblMensagem.Size = new Size(119, 25);
-            lblMensagem.TabIndex = 12;
+            lblMensagem.Size = new Size(285, 50);
+            lblMensagem.TabIndex = 13;
             lblMensagem.Text = "lblMensagem";
             // 
             // ReservaAluno

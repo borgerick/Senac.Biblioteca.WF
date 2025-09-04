@@ -58,6 +58,8 @@
             txtBipeLivro.TabIndex = 12;
             txtBipeLivro.Text = "Bipe seu livro aqui";
             txtBipeLivro.TextAlign = HorizontalAlignment.Center;
+            txtBipeLivro.Enter += txtBipeLivro_Enter;
+            txtBipeLivro.Leave += txtBipeLivro_Leave;
             // 
             // btnLocalizar
             // 
@@ -72,6 +74,7 @@
             btnLocalizar.TabIndex = 13;
             btnLocalizar.Text = "Localizar";
             btnLocalizar.UseVisualStyleBackColor = false;
+            btnLocalizar.Click += btnLocalizar_Click;
             // 
             // btnVoltar
             // 

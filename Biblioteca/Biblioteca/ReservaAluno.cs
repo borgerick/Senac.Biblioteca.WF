@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;           
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Biblioteca
@@ -7,85 +7,105 @@ namespace Biblioteca
     public partial class ReservaAluno : Form
     {
         private readonly string _cpfAluno;
-        private string cPFValido;
+        private readonly string _nomeAluno;
 
         public ReservaAluno(string cpfDigitado, string nome)
         {
             InitializeComponent();
+            _cpfAluno = cpfDigitado;   
+            _nomeAluno = nome;
+
             lblMensagem.Text = "Oii " + nome;
         }
 
-        //public ReservaAluno(string cPFValido)
-        //{
-        //    this.cPFValido = cPFValido;
-        //}
+        private void ReservaAluno_Load(object sender, EventArgs e)
+        {
+            txtBipeLivro.Focus();
+        }
 
-        //private void ReservaAluno_Load(object sender, EventArgs e)
-        //{
-        //    txtBipeLivro.Focus();
-        //}
+        private void btnLocalizar_Click(object sender, EventArgs e)
+        {
+            string codigoLivro = txtBipeLivro.Text?.Trim();
 
-        //private void btnLocalizar_Click(object sender, EventArgs e)
-        //{
-        //    string codigoLivro = txtBipeLivro.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(codigoLivro))
+            {
+                MessageBox.Show("Digite o código do livro.", "Atenção",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
 
-        //    if (string.IsNullOrWhiteSpace(codigoLivro))
-        //    {
-        //        MessageBox.Show("Digite o código do livro.", "Atenção",
-        //                        MessageBoxButtons.OK, 
-        //                        MessageBoxIcon.Warning);
-        //        return;
-        //    }
+            try
+            {
+                using (var bd = new BibliotecaDbContext())
+                {
+                    // Localiza aluno
+                    var aluno = bd.Alunos.FirstOrDefault(e => e.CPF == _cpfAluno);
+                    if (aluno == null)
+                    {
+                        MessageBox.Show("Aluno não encontrado.", "Erro",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-        //    try
-        //    {
-        //        using (var bd = new BibliotecaDbContext())
-        //        {
-        //            var aluno = bd.Alunos.FirstOrDefault(a => a.CPF == _cpfAluno);
-        //            if (aluno == null)
-        //            {
-        //                MessageBox.Show("Livro encontrado.", "Erro",
-        //                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //                return;
-        //            }
+                    // Localiza livro
+                    var livro = bd.Livros.FirstOrDefault(l => l.Codigo == codigoLivro);
+                    if (livro == null)
+                    {
+                        MessageBox.Show("Livro não encontrado.", "Erro",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-        //            var livro = bd.Livros.FirstOrDefault(l => l.Codigo == codigoLivro); // ajuste o nome do campo se for diferente
-        //            if (livro == null)
-        //            {
-        //                MessageBox.Show("Livro não encontrado.", "Erro",
-        //                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //                return;
-        //            }
+                    // Verifica se já existe reserva ativa
+                    bool jaReservado = bd.Emprestimos
+                                         .Any(e => e.AlunoId == aluno.Id &&
+                                                   e.LivroId == livro.Id &&
+                                                   e.SituacaoLivro == 1); // 1 = Reservado
 
-        //            var emprestimo = new Emprestimo
-        //            {
-        //                LivroId = livro.Id,
-        //                AlunoId = aluno.Id,
-        //                SituacaoLivro = 1,                 // 1 = Locado
-        //                DataRetirada = DateTime.Now,
-        //                DataDevolucao = DateTime.Now.AddDays(7)
-        //            };
+                    if (jaReservado)
+                    {
+                        MessageBox.Show("Este aluno já possui uma reserva ativa para este livro.",
+                                        "Reserva duplicada",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                        return;
+                    }
 
-        //            bd.Emprestimos.Add(emprestimo);
-        //            bd.SaveChanges();
+                    // Cria reserva
+                    var emprestimo = new Emprestimo
+                    {
+                        LivroId = livro.Id,
+                        AlunoId = aluno.Id,
+                        SituacaoLivro = 1,                 // 1 = Reservado
+                        DataRetirada = DateTime.Now,
+                        DataDevolucao = DateTime.Now.AddDays(7)
+                    };
 
-        //            using (var resumo = new ResumoEmprestimoAluno(emprestimo.Id))
-        //            {
-        //                resumo.ShowDialog(this);
-        //            }
+                    bd.Emprestimos.Add(emprestimo);
+                    bd.SaveChanges();
 
-        //            // Se for continuar na mesma tela para novo empréstimo:
-        //            txtBipeLivro.Clear();
-        //            txtBipeLivro.Focus();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Ocorreu um erro ao registrar o empréstimo:\n" + ex.Message,
-        //                        "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+                    // Mostra resumo
+                    var resumo = new ResumoEmprestimoAluno(emprestimo.Id);
+                    resumo.ShowDialog(this);
 
+                    // Limpa campo
+                    txtBipeLivro.Clear();
+                    txtBipeLivro.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao registrar o empréstimo:\n" + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
+        //AJUSTES PARA TEXTO SUMIR E APARECER DE NOVO QUANDO CLICAR FORA DO CAMPO
         private void btnVoltar_Click_1(object sender, EventArgs e)
         {
             Close();
