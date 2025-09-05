@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivroAdmin));
             btnAluno = new Button();
             btnLivro = new Button();
@@ -38,7 +39,14 @@
             dataGridViewLivro = new DataGridView();
             txtBuscar = new TextBox();
             button1 = new Button();
+            livroBindingSource = new BindingSource(components);
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            codigoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            tituloDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            autorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            categoriaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLivro).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)livroBindingSource).BeginInit();
             SuspendLayout();
             // 
             // btnAluno
@@ -135,9 +143,12 @@
             // dataGridViewLivro
             // 
             dataGridViewLivro.AllowUserToAddRows = false;
+            dataGridViewLivro.AutoGenerateColumns = false;
             dataGridViewLivro.BackgroundColor = Color.White;
             dataGridViewLivro.BorderStyle = BorderStyle.None;
             dataGridViewLivro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewLivro.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, codigoDataGridViewTextBoxColumn, tituloDataGridViewTextBoxColumn, autorDataGridViewTextBoxColumn, categoriaDataGridViewTextBoxColumn });
+            dataGridViewLivro.DataSource = livroBindingSource;
             dataGridViewLivro.Location = new Point(12, 93);
             dataGridViewLivro.Name = "dataGridViewLivro";
             dataGridViewLivro.ReadOnly = true;
@@ -168,6 +179,56 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // livroBindingSource
+            // 
+            livroBindingSource.DataSource = typeof(Livro);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 8;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Visible = false;
+            idDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            codigoDataGridViewTextBoxColumn.MinimumWidth = 8;
+            codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            codigoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // tituloDataGridViewTextBoxColumn
+            // 
+            tituloDataGridViewTextBoxColumn.DataPropertyName = "Titulo";
+            tituloDataGridViewTextBoxColumn.HeaderText = "Titulo";
+            tituloDataGridViewTextBoxColumn.MinimumWidth = 8;
+            tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
+            tituloDataGridViewTextBoxColumn.ReadOnly = true;
+            tituloDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // autorDataGridViewTextBoxColumn
+            // 
+            autorDataGridViewTextBoxColumn.DataPropertyName = "Autor";
+            autorDataGridViewTextBoxColumn.HeaderText = "Autor";
+            autorDataGridViewTextBoxColumn.MinimumWidth = 8;
+            autorDataGridViewTextBoxColumn.Name = "autorDataGridViewTextBoxColumn";
+            autorDataGridViewTextBoxColumn.ReadOnly = true;
+            autorDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // categoriaDataGridViewTextBoxColumn
+            // 
+            categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
+            categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
+            categoriaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            categoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            categoriaDataGridViewTextBoxColumn.Width = 150;
+            // 
             // LivroAdmin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -190,6 +251,7 @@
             Text = "LivroAdmin";
             Load += LivroAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewLivro).EndInit();
+            ((System.ComponentModel.ISupportInitialize)livroBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -205,5 +267,11 @@
         private DataGridView dataGridViewLivro;
         private TextBox txtBuscar;
         private Button button1;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
+        private BindingSource livroBindingSource;
     }
 }

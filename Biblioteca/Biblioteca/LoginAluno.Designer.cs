@@ -57,6 +57,8 @@
             // 
             btnEntrar.BackColor = Color.Transparent;
             btnEntrar.FlatAppearance.BorderSize = 0;
+            btnEntrar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnEntrar.FlatAppearance.MouseOverBackColor = Color.Blue;
             btnEntrar.FlatStyle = FlatStyle.Flat;
             btnEntrar.Font = new Font("Arial", 16F);
             btnEntrar.ForeColor = Color.White;
@@ -122,6 +124,8 @@
             // 
             btnDevolver.BackColor = Color.Transparent;
             btnDevolver.FlatAppearance.BorderSize = 0;
+            btnDevolver.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnDevolver.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btnDevolver.FlatStyle = FlatStyle.Flat;
             btnDevolver.Font = new Font("Arial", 16F);
             btnDevolver.ForeColor = Color.Gray;

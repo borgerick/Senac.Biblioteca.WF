@@ -30,7 +30,8 @@ namespace Biblioteca
                 var livros = bd.Livros.AsQueryable();
                 if (!string.IsNullOrEmpty(txtBuscar.Text))
                 {
-                    livros = livros.Where(e => e.Titulo.Contains(txtBuscar.Text) ||
+                    livros = livros.Where(e => e.Codigo.Contains(txtBuscar.Text)|| 
+                                               e.Titulo.Contains(txtBuscar.Text) ||
                                                e.Autor.Contains(txtBuscar.Text) ||
                                                e.Categoria.Contains(txtBuscar.Text));
                 }
@@ -52,32 +53,23 @@ namespace Biblioteca
             {
                 livroSelecionado = dataGridViewLivro.Rows[e.RowIndex].DataBoundItem as Livro;
                 btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;//botei por ultimo
             }
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (livroSelecionado == null)
+            if (livroSelecionado != null)
             {
-                MessageBox.Show("Selecione um livro para editar.",
-                                "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Abre tela de edição
-            using (var frmlivro = new LivroAdminCad(livroSelecionado))
+                var resultado = new LivroAdminCad(livroSelecionado);
+                resultado.ShowDialog();
+                BuscarLivros();
+                livroSelecionado = null;
+            }else
             {
-                var resultado = frmlivro.ShowDialog();
-
-                // Se o admin clicou em "Salvar", atualiza a lista
-                if (resultado == DialogResult.OK)
-                {
-                    BuscarLivros();
-                }
+                MessageBox.Show("Selecione um livro", "Confirmação", MessageBoxButtons.YesNo);
             }
-
-            // Limpa seleção
-            livroSelecionado = null;
         }
+
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (livroSelecionado != null)

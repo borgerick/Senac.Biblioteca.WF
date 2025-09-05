@@ -40,12 +40,14 @@
             // 
             btnLocalizar.BackColor = Color.Transparent;
             btnLocalizar.FlatAppearance.BorderSize = 0;
+            btnLocalizar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnLocalizar.FlatAppearance.MouseOverBackColor = Color.Blue;
             btnLocalizar.FlatStyle = FlatStyle.Flat;
             btnLocalizar.Font = new Font("Arial", 16F);
             btnLocalizar.ForeColor = Color.White;
-            btnLocalizar.Location = new Point(211, 443);
+            btnLocalizar.Location = new Point(194, 443);
             btnLocalizar.Name = "btnLocalizar";
-            btnLocalizar.Size = new Size(159, 49);
+            btnLocalizar.Size = new Size(193, 47);
             btnLocalizar.TabIndex = 7;
             btnLocalizar.Text = "Localizar";
             btnLocalizar.UseVisualStyleBackColor = false;

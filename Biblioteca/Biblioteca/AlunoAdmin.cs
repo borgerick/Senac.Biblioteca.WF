@@ -32,11 +32,14 @@ namespace Biblioteca
                 {
                     alunos = alunos.Where(e => e.Nome.Contains(txtBuscar.Text) ||
                                                e.SobreNome.Contains(txtBuscar.Text) ||
+                                               e.Email.Contains(txtBuscar.Text) ||
+                                               e.Telefone.Contains(txtBuscar.Text) ||
+                                               e.Matricula.Contains(txtBuscar.Text) ||
                                                e.CPF.Contains(txtBuscar.Text)).AsQueryable();
                 }
                 dataGridView1.DataSource = alunos.ToList();
             }
-        }      
+        }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             new AlunoAdminCad().ShowDialog();
@@ -50,7 +53,7 @@ namespace Biblioteca
         {
             if (e.RowIndex >= 0)
             {
-                var alunoSelecionado = dataGridView1.Rows[e.RowIndex].DataBoundItem as Aluno;
+                alunoSelecionado = dataGridView1.Rows[e.RowIndex].DataBoundItem as Aluno;
                 btnEditar.Enabled = true;
                 btnExcluir.Enabled = true;
             }
@@ -64,6 +67,12 @@ namespace Biblioteca
                 BuscarAlunos();
                 alunoSelecionado = null;
             }
+            else
+            {
+                MessageBox.Show("Selecione um aluno para editar.",
+                                "Atenção",
+                                MessageBoxButtons.YesNo);
+            }
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -75,9 +84,9 @@ namespace Biblioteca
                     bd.SaveChanges();
                 }
             MessageBox.Show("Aluno excluído com sucesso!",
-                "Sucesso",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+                            "Sucesso",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
             BuscarAlunos();
             alunoSelecionado = null;
         }
@@ -94,6 +103,13 @@ namespace Biblioteca
             this.Hide();
             var frmReserva = new EmprestimoAdmin("");
             frmReserva.ShowDialog();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            var frmPrincipal = new FrmPrincipal("");
+            frmPrincipal.Show();
         }
     }
 }

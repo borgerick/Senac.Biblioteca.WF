@@ -166,6 +166,7 @@
             btnVoltar.Size = new Size(51, 49);
             btnVoltar.TabIndex = 11;
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // AlunoAdmin
             // 

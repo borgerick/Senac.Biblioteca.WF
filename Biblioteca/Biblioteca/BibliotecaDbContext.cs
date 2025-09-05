@@ -13,8 +13,8 @@ namespace Biblioteca
         {
             // use mysql as database
             optionsBuilder
-                .UseMySql("server=localhost;database=bibliotecawf;user=root;password=", 
-                MySqlServerVersion.AutoDetect("server=localhost;database=bibliotecawf;user=root;password="));
+                .UseMySql("Server=localhost;Database=bibliotecawf;User ID=root;Password=;Port=3306;", 
+                MySqlServerVersion.AutoDetect("Server=localhost;Database=bibliotecawf;User ID=root;Password=;Port=3306;"));
         }
 
         override protected void OnModelCreating(ModelBuilder modelBuilder)

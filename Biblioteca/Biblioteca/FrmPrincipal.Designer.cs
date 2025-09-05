@@ -38,6 +38,8 @@
             // 
             btnAdmin.BackColor = Color.Transparent;
             btnAdmin.FlatAppearance.BorderSize = 0;
+            btnAdmin.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnAdmin.FlatAppearance.MouseOverBackColor = Color.Orange;
             btnAdmin.FlatStyle = FlatStyle.Flat;
             btnAdmin.Font = new Font("Arial", 28F);
             btnAdmin.ForeColor = Color.White;
@@ -53,12 +55,14 @@
             // 
             btnAluno.BackColor = Color.Transparent;
             btnAluno.FlatAppearance.BorderSize = 0;
+            btnAluno.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnAluno.FlatAppearance.MouseOverBackColor = Color.Blue;
             btnAluno.FlatStyle = FlatStyle.Flat;
             btnAluno.Font = new Font("Arial", 28F);
             btnAluno.ForeColor = Color.White;
-            btnAluno.Location = new Point(197, 451);
+            btnAluno.Location = new Point(186, 454);
             btnAluno.Name = "btnAluno";
-            btnAluno.Size = new Size(383, 133);
+            btnAluno.Size = new Size(394, 130);
             btnAluno.TabIndex = 5;
             btnAluno.Text = "Aluno";
             btnAluno.UseVisualStyleBackColor = false;

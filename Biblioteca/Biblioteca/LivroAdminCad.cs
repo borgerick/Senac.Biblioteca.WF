@@ -54,12 +54,11 @@ namespace Biblioteca
                 string autor = txtAutor.Text;
                 string categoria = txtCategoria.Text;
                 
-                var livros = bd.Livros.First(e => e.Id != _livrotem.Id &&
-                                        e.Codigo == codigo &&
-                                        e.Titulo == titulo &&
-                                        e.Autor == autor &&
-                                        e.Categoria == categoria);
+                var livros = bd.Livros.First(e => e.Id != _livrotem.Id);
+                livros.Codigo = codigo;
                 livros.Titulo = titulo;
+                livros.Autor = autor;
+                livros.Categoria = categoria;
 
                 bd.Livros.Update(livros);
                 bd.SaveChanges();
@@ -70,6 +69,8 @@ namespace Biblioteca
                     MessageBoxIcon.Information);
 
                 this.Close();
+
+                CarregarDadosDaTela();
             }
         }
 
@@ -120,10 +121,12 @@ namespace Biblioteca
         {
             if (string.IsNullOrWhiteSpace(txtTitulo.Text))
             {
-                txtTitulo.Text = "Digite seu CPF";
+                txtTitulo.Text = "Titulo";
                 txtTitulo.ForeColor = Color.Black;
             }
         }
+
+
         private void txtAutor_Enter(object sender, EventArgs e)
         {
             if (txtAutor.Text == "Autor")
@@ -132,7 +135,6 @@ namespace Biblioteca
                 txtAutor.ForeColor = Color.Black;
             }
         }
-
         private void txtAutor_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtAutor.Text))
@@ -141,6 +143,8 @@ namespace Biblioteca
                 txtAutor.ForeColor = Color.Black;
             }
         }
+
+
         private void txtCategoria_Enter(object sender, EventArgs e)
         {
             if (txtCategoria.Text == "Categoria")
@@ -158,6 +162,8 @@ namespace Biblioteca
                 txtCategoria.ForeColor = Color.Black;
             }
         }
+
+
         private void txtCodigo_Enter(object sender, EventArgs e)
         {
             if (txtCodigo.Text == "Codigo")
@@ -166,7 +172,6 @@ namespace Biblioteca
                 txtCodigo.ForeColor = Color.Black;
             }
         }
-
         private void txtCodigo_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtCodigo.Text))

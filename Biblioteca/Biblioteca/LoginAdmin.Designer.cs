@@ -80,6 +80,8 @@
             // 
             btnEntrar.BackColor = Color.Transparent;
             btnEntrar.FlatAppearance.BorderSize = 0;
+            btnEntrar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnEntrar.FlatAppearance.MouseOverBackColor = Color.Orange;
             btnEntrar.FlatStyle = FlatStyle.Flat;
             btnEntrar.Font = new Font("Arial", 16F);
             btnEntrar.ForeColor = Color.White;
